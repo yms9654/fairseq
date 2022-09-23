@@ -305,6 +305,8 @@ class TranslationTask(FairseqTask):
             )
 
         # load dictionaries
+        paths[0] = 'data-bin/ai_hub.ko-en'
+        print("paths[0]: ", paths[0])
         src_dict = cls.load_dictionary(
             os.path.join(paths[0], "dict.{}.txt".format(cfg.source_lang))
         )
