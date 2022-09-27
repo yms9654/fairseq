@@ -6,3 +6,6 @@ omegaconf
 bitarray
 tensorboard
 tensorboardX
+konlpy
+nltk
+sentencepiece
