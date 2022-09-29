@@ -1,3 +1,4 @@
+from cProfile import label
 import gradio as gr
 from fairseq.models.transformer import TransformerModel
 
@@ -12,6 +13,9 @@ ko2en = TransformerModel.from_pretrained(
 def translate(input):    
     return ko2en.translate(input)
 
-demo = gr.Interface(fn=translate, inputs="text", outputs="text")
+with gr.Blocks() as demo:
+    input = gr.Textbox(label="Input")
+    output = gr.Textbox(label="Output")
+    input.submit(fn=translate, inputs=input, outputs=output)
 
-demo.launch()   
+demo.launch(share=True)   
