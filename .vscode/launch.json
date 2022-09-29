@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "data-bin/ai_hub_sp.ko-en",
+                "--path", "checkpoints/koen_sp/checkpoint_best.pt",
+                "--batch-size", "1024",
+                "--beam", "5",
+                "--remove-bpe",
+                "--bpe sentencepiece",
+                "--sentencepiece-model", "data/sp/subword_tokenizer_en.model"
+            ]
+        }
+    ]
+}

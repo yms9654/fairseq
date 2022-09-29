@@ -1,0 +1,11 @@
+# fastBPE
+sacremoses
+subword_nmt
+hydra-core
+omegaconf
+bitarray
+tensorboard
+tensorboardX
+konlpy
+nltk
+sentencepiece
