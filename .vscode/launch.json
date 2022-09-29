@@ -10,15 +10,27 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "fairseq test",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
             "justMyCode": true,
             "args": [
                 "data-bin/ai_hub_sp.ko-en",
-                "--path", "checkpoints/koen_sp/checkpoint_best.pt",
-                "--batch-size", "1024",
-                "--beam", "5",
+                "--path",
+                "checkpoints/koen_sp/checkpoint_best.pt",
+                "--batch-size",
+                "1024",
+                "--beam",
+                "5",
                 "--remove-bpe",
                 "--bpe sentencepiece",
-                "--sentencepiece-model", "data/sp/subword_tokenizer_en.model"
+                "--sentencepiece-model",
+                "data/sp/subword_tokenizer_en.model"
             ]
         }
     ]

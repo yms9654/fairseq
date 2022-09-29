@@ -9,3 +9,4 @@ tensorboardX
 konlpy
 nltk
 sentencepiece
+gradio
