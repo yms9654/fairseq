@@ -13,9 +13,14 @@ ko2en = TransformerModel.from_pretrained(
 def translate(input):    
     return ko2en.translate(input)
 
+callback = gr.CSVLogger()
+
 with gr.Blocks() as demo:
     input = gr.Textbox(label="Input")
     output = gr.Textbox(label="Output")
     input.submit(fn=translate, inputs=input, outputs=output)
-
+    
+    btn = gr.Button('오류보고')
+    callback.setup([input, output], 'flagged')
+    btn.click(lambda *args: callback.flag(args), [input, output], None, preprocess=False)
 demo.launch(share=True)   

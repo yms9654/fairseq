@@ -1,5 +1,5 @@
 DATA=data-bin/ai_hub_sp.ko-en
-CKPT=checkpoints/koen_transformer/checkpoint_best.pt
+CKPT=checkpoints/koen_transformer_full/checkpoint_best.pt
 # DATA=data-bin/ai_hub_tok.ko-en
 # CKPT=checkpoints/koen_tok/checkpoint_best.pt
 
