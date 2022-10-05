@@ -1,10 +1,11 @@
 import sentencepiece as spm
 
-input = "data/ai_hub/clean.ko"
-output = "data/ai_hub_sp/clean.ko"
+input = "data/teracomix/full.en"
+output = "data/teracomix/clean_sp.en"
+model = 'data/sp/subword_tokenizer_en.model'
 
 sp = spm.SentencePieceProcessor()
-sp.Load('data/sp/subword_tokenizer_ko.model')
+sp.Load(model)
 output_fp = open(output, "w")
 
 with open(input) as fp:

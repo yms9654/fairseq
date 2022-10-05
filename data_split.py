@@ -1,22 +1,24 @@
 import linecache
 import random
 
-full_en = 'data/ai_hub_sp/clean.en'
-full_ko = 'data/ai_hub_sp/clean.ko'
+path = 'data/teracomix/'
 
-train_en = open('data/ai_hub_sp/train.en', 'w')
-train_ko = open('data/ai_hub_sp/train.ko', 'w')
-valid_en = open('data/ai_hub_sp/valid.en', 'w')
-valid_ko = open('data/ai_hub_sp/valid.ko', 'w')
-test_en = open('data/ai_hub_sp/test.en', 'w')
-test_ko = open('data/ai_hub_sp/test.ko', 'w')
+full_en = path+'clean_sp.en'
+full_ko = path+'clean_sp.ko'
+
+train_en = open(path+'train.en', 'w')
+train_ko = open(path+'train.ko', 'w')
+valid_en = open(path+'valid.en', 'w')
+valid_ko = open(path+'valid.ko', 'w')
+test_en = open(path+'test.en', 'w')
+test_ko = open(path+'test.ko', 'w')
 
 test_size = 0
 with open(full_en, 'r') as fp:
     for idx, en in enumerate(fp):
         ko = linecache.getline(full_ko, idx+1)
         if idx % 10 == 0:
-            if random.choice([True, False]) and test_size < 5000:
+            if random.choice([True, False]) and test_size < 100:
                 test_en.write(en)
                 test_ko.write(ko)
                 test_size+=1
@@ -26,6 +28,7 @@ with open(full_en, 'r') as fp:
         else:
             train_en.write(en)
             train_ko.write(ko)
+        print(idx)
 
 train_en.close()
 train_ko.close()
