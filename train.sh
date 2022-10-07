@@ -1,6 +1,6 @@
-OUTPUT=checkpoints/koen_transformer_full
-DATE=20220929
-DATA=data-bin/ai_hub_sp.ko-en
+OUTPUT=checkpoints/koen_transformer_1006
+DATE=20221006
+DATA=data-bin/ai_hub_sp
 
 mkdir -p $OUTPUT
 

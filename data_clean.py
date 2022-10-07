@@ -1,8 +1,9 @@
 import linecache
 
-input = 'data/teracomix/full.ko'
+lang = 'en'
+input = f'data/ai_hub/full.{lang}'
 
-output = open('data/teracomix/clean.ko', 'w')
+output = open(f'data/ai_hub/clean.{lang}', 'w')
 
 def clean(input):
     ret = input.replace('>', '')
@@ -11,6 +12,8 @@ def clean(input):
     ret = ret.replace('”', '"')
     ret = ret.replace('“', '"')
     ret = ret.replace('…', '')
+    ret = ret.replace('’', '`')
+    ret = ret.replace('‘', '\'')
     ret = ret.strip()
     # print(input, ret)
     return ret

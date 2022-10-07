@@ -1,6 +1,6 @@
-OUTPUT=checkpoints/koen_transformer_teracomix_1005
-DATE=20221005
-DATA=data-bin/teracomix-1005
+OUTPUT=checkpoints/koen_transformer_teracomix_1006
+DATE=20221006
+DATA=data-bin/teracomix-1006
 
 mkdir -p $OUTPUT
 
@@ -19,5 +19,5 @@ CUDA_VISIBLE_DEVICES=0 fairseq-train $DATA \
     --max-tokens 4096 \
     --save-dir $OUTPUT \
     --tensorboard-logdir log/tfboard/$DATE --log-file log/$DATE.log \
-    --batch-size 1024 --max-epoch 60 --amp \
+    --batch-size 1024 --max-epoch 40 --amp \
     --finetune-from-model checkpoints/koen_transformer_full/checkpoint_best.pt 

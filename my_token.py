@@ -1,8 +1,9 @@
 import sentencepiece as spm
 
-input = "data/teracomix/full.en"
-output = "data/teracomix/clean_sp.en"
-model = 'data/sp/subword_tokenizer_en.model'
+lang = 'ko'
+input = f'data/ai_hub/clean.{lang}'
+output = f'data/ai_hub_sp/clean.{lang}'
+model = f'data/sp/subword_tokenizer_{lang}.model'
 
 sp = spm.SentencePieceProcessor()
 sp.Load(model)

@@ -1,9 +1,10 @@
 import sentencepiece as spm
 
-input_file = 'data/ai_hub/clean.ko'
+lang = 'en'
+input_file = f'data/ai_hub/clean.{lang}'
 vocab_size = 32000
-model_name = 'data/sp/char_tokenizer_ko'
-model_type = 'char'
+model_name = f'data/sp/subword_tokenizer_{lang}'
+model_type = 'bpe'
 user_defined_symbols = '[PAD],[UNK],[CLS],[SEP],[MASK],[UNK1],[UNK2],[UNK3],[UNK4],[UNK5]'
 
 input_argument = '--input=%s --model_prefix=%s --vocab_size=%s --user_defined_symbols=%s --model_type=%s'

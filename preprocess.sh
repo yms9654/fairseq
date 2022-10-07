@@ -1,8 +1,11 @@
-TEXT=data/teracomix
-OUTPUT=data-bin/teracomix-1005
+NAME=ai_hub_sp
+TEXT=data/$NAME
+OUTPUT=data-bin/$NAME
+
+rm -rf $OUTPUT
 
 fairseq-preprocess --source-lang ko --target-lang en \
     --trainpref $TEXT/train --validpref $TEXT/valid --testpref $TEXT/test \
     --destdir $OUTPUT \
-    --srcdict data-bin/dict/update.ko.txt --tgtdict data-bin/dict/update.en.txt \
-    --workers 20 
+    --workers 20 \
+    # --srcdict data-bin/ai_hub_sp.ko-en/dict.ko.txt --tgtdict data-bin/ai_hub_sp.ko-en/dict.en.txt \
