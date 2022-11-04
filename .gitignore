@@ -144,3 +144,5 @@ outputs
 log
 data
 flagged/log.csv
+
+tfs-workshop/model_artifact

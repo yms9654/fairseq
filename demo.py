@@ -3,9 +3,9 @@ import gradio as gr
 from fairseq.models.transformer import TransformerModel
 
 ko2en = TransformerModel.from_pretrained(
-    'checkpoints/koen_transformer_teracomix',
-    checkpoint_file='checkpoint_best.pt',
-    data_name_or_path='data-bin/teracomix',
+    'checkpoints/koen_transformer_tc_wt',
+    checkpoint_file='checkpoint_last.pt',
+    data_name_or_path='data-bin/tc_wt',
     bpe='sentencepiece',
     sentencepiece_model='data/sp/subword_tokenizer_ko.model'
 )

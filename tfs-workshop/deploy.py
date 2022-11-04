@@ -15,7 +15,8 @@ model = PyTorchModel(model_data=model_path,
                      source_dir='tfs-workshop/src',
                      framework_version='1.12.0',
                      py_version='py38',
-                     env={'SAGEMAKER_MODEL_SERVER_WORKERS': '1'})
+                    #  env={'SAGEMAKER_MODEL_SERVER_WORKERS': '1'}
+                    )
 
 predictor = model.deploy(
     endpoint_name=endpoint_name,
@@ -25,18 +26,21 @@ predictor = model.deploy(
     deserializer=JSONDeserializer()
 )
 
-# import boto3
-# import json
+import boto3
+import json
 
-# runtime_client = boto3.client('sagemaker-runtime')
-# endpoint_name = model.endpoint_name
+runtime_client = boto3.client('sagemaker-runtime')
+endpoint_name = model.endpoint_name
 
-# response = runtime_client.invoke_endpoint(
-#     EndpointName=endpoint_name, 
-#     ContentType='application/json',
-#     Accept='application/json',
-#     Body='안녕하세요.'
-#     )
+body = ['안녕하세요.', '반갑습니다.']
+body = json.dumps(body)
 
-# outputs = json.loads(response['Body'].read().decode())
-# print(outputs)
+response = runtime_client.invoke_endpoint(
+    EndpointName=endpoint_name, 
+    ContentType='application/json',
+    Accept='application/json',
+    Body=body
+    )
+
+outputs = json.loads(response['Body'].read().decode())
+print(outputs)

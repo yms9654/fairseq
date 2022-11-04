@@ -1,10 +1,10 @@
 import linecache
 import random
 
-path = 'data/ai_hub_sp/'
+path = 'data/tc_wt/'
 
-full_en = path+'clean.en'
-full_ko = path+'clean.ko'
+full_en = path+'clean_sp.en'
+full_ko = path+'clean_sp.ko'
 
 train_en = open(path+'train.en', 'w')
 train_ko = open(path+'train.ko', 'w')
@@ -14,7 +14,7 @@ test_en = open(path+'test.en', 'w')
 test_ko = open(path+'test.ko', 'w')
 
 test_size = 0
-max_test_size = 5000
+max_test_size = 500
 # valid + test 데이터 사이즈를 10%로 만들고 test 데이터는 max_test_size 만큼 만든다.
 with open(full_en, 'r') as fp:
     for idx, en in enumerate(fp):

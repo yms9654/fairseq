@@ -10,3 +10,6 @@ konlpy
 nltk
 sentencepiece
 gradio
+awscli
+s3transfer
+sagemaker

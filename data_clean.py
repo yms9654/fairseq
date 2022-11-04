@@ -1,12 +1,11 @@
-import linecache
+lang = 'ko'
+name = 'test'
 
-lang = 'en'
-input = f'data/ai_hub/full.{lang}'
+input = f'data/{name}/full.{lang}'
+output = open(f'data/{name}/clean.{lang}', 'w')
 
-output = open(f'data/ai_hub/clean.{lang}', 'w')
-
-def clean(input):
-    ret = input.replace('>', '')
+def clean(line):
+    ret = line.replace('>', '')
     ret = ret.replace('<', '')
     ret = ret.replace('/', '')
     ret = ret.replace('”', '"')
@@ -15,6 +14,7 @@ def clean(input):
     ret = ret.replace('’', '`')
     ret = ret.replace('‘', '\'')
     ret = ret.strip()
+    ret = ret.lower()
     # print(input, ret)
     return ret
 
