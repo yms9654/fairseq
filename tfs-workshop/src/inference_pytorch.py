@@ -45,6 +45,7 @@ def transform_fn(model, request_body, content_type='application/json', accept_ty
     input = json.loads(request_body)
     with torch.no_grad():    
         result = model.translate(input)
+        result = list(map(str.upper, result))
 
     t1 = time.time() - t0
     print("--- Elapsed time: %s secs ---" % t1)

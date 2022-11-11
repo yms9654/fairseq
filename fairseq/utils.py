@@ -229,6 +229,20 @@ def replace_unk(hypo_str, src_str, alignment, align_dict, unk):
             hypo_tokens[i] = align_dict.get(src_token, src_token)
     return " ".join(hypo_tokens)
 
+def replace_word(hypo_str, src_str, alignment, align_dict, unk):
+    from fairseq import tokenizer
+
+    # Tokens are strings here
+    hypo_tokens = tokenizer.tokenize_line(hypo_str)
+    # TODO: Very rare cases where the replacement is '<eos>' should be handled gracefully
+    src_tokens = tokenizer.tokenize_line(src_str) + ["<eos>"]
+    for i, st in enumerate(src_tokens):
+        if st in align_dict:
+            src_token = src_tokens[alignment[i]]
+            # Either take the corresponding value in the aligned dictionary or just copy the original value.
+            hypo_tokens[i] = align_dict.get(src_token)
+    return " ".join(hypo_tokens)
+
 
 def post_process_prediction(
     hypo_tokens,
@@ -246,6 +260,10 @@ def post_process_prediction(
         hypo_str = replace_unk(
             hypo_str, src_str, alignment, align_dict, tgt_dict.unk_string()
         )
+    # if align_dict is not None:
+    #     hypo_str = replace_word(
+    #         hypo_str, src_str, alignment, align_dict, tgt_dict.unk_string()
+    #     )
     if align_dict is not None or remove_bpe is not None:
         # Convert back to tokens for evaluating with unk replacement or without BPE
         # Note that the dictionary can be modified inside the method.

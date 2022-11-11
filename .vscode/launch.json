@@ -13,6 +13,21 @@
             "justMyCode": true
         },
         {
+            "name": "interactive",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "data-bin/test",
+                "--path", "checkpoints/koen_transformer_1006/checkpoint_best.pt",
+                "--beam", "5", "--bpe", "sentencepiece", 
+                "--sentencepiece-model", "data/sp/subword_tokenizer_ko.model", "--sacrebleu",
+                "--replace-unk", "align_dict.txt", "--print-alignment", "hard"
+            ]
+        },
+        {
             "name": "fairseq test",
             "type": "python",
             "request": "launch",

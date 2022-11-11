@@ -1,0 +1,1 @@
+spm_decode --model=data/sp/subword_tokenizer_ko.model < data/sh/test.ko

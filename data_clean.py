@@ -1,8 +1,8 @@
-lang = 'ko'
-name = 'test'
+lang = 'en'
+dir = 'papago'
 
-input = f'data/{name}/full.{lang}'
-output = open(f'data/{name}/clean.{lang}', 'w')
+input = f'data/{dir}/ref.{lang}'
+output = open(f'data/{dir}/ref_clean.{lang}', 'w')
 
 def clean(line):
     ret = line.replace('>', '')

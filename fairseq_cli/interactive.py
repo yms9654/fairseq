@@ -189,6 +189,7 @@ def main(cfg: FairseqConfig):
     # Load alignment dictionary for unknown word replacement
     # (None if no unknown word replacement, empty if no path to align dictionary)
     align_dict = utils.load_align_dict(cfg.generation.replace_unk)
+    print(align_dict)
 
     max_positions = utils.resolve_max_positions(
         task.max_positions(), *[model.max_positions() for model in models]
@@ -273,6 +274,7 @@ def main(cfg: FairseqConfig):
                     remove_bpe=cfg.common_eval.post_process,
                     extra_symbols_to_ignore=get_symbols_to_strip_from_output(generator),
                 )
+                # TODO: 여기에 용어집 로직 추가하면 될듯.
                 detok_hypo_str = decode_fn(hypo_str)
                 score = hypo["score"] / math.log(2)  # convert to base 2
                 # original hypothesis (after tokenization and BPE)

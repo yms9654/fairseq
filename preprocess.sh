@@ -1,4 +1,4 @@
-NAME=test
+NAME=sh
 TEXT=data/$NAME
 OUTPUT=data-bin/$NAME
 

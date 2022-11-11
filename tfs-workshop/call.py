@@ -3,9 +3,9 @@ import json
 
 runtime_client = boto3.client('sagemaker-runtime')
 
-endpoint_name = 'translate-dev'
+endpoint_name = 'translate-dev4'
 
-body = ['안녕하세요.', '반갑습니다.']
+body = ['부스럭.. 부스럭...', '부스럭.. 부스럭...']
 body = json.dumps(body)
 
 response = runtime_client.invoke_endpoint(

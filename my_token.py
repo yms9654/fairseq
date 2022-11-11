@@ -1,9 +1,9 @@
 import sentencepiece as spm
 
 lang = 'en'
-name = 'test'
-input = f'data/{name}/clean.{lang}'
-output = f'data/{name}/clean_sp.{lang}'
+dir = 'sh'
+input = f'data/{dir}/full_clean.{lang}'
+output = f'data/{dir}/train.{lang}'
 model = f'data/sp/subword_tokenizer_{lang}.model'
 
 sp = spm.SentencePieceProcessor()
